@@ -16,7 +16,7 @@ steps:
 
   # 2. Importar clave privada GPG desde secreto
   - script: |
-      echo "$(GPG_PRIVATE_KEY)" | gpg --batch --import
+      echo "$(GPG_PRIVATE_KEY)" | base64 --decode | gpg --batch --import
     displayName: "Importar clave GPG"
 
   # 3. Verificar claves (opcional)
