@@ -35,7 +35,7 @@ steps:
     inputs:
       mavenPomFile: "pom.xml"
       goals: "clean deploy -P release"
-      options: "-Dgpg.passphrase=$(GPG_PASSPHRASE) -s settings.xml"
+      options: "-Dgpg.passphrase=$(GPG_PASSPHRASE)"
       javaHomeOption: "JDKVersion"
       jdkVersionOption: "1.11"
       publishJUnitResults: true
