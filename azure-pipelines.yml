@@ -1,0 +1,43 @@
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  MAVEN_OPTS: "-Xmx1024m"
+
+steps:
+  # 1. Instalar GPG y Maven
+  - script: |
+      sudo apt-get update
+      sudo apt-get install -y gnupg
+    displayName: "Instalar dependencias (GPG, etc.)"
+
+  # 2. Importar clave privada GPG desde secreto
+  - script: |
+      echo "$(GPG_PRIVATE_KEY)" | gpg --batch --import
+    displayName: "Importar clave GPG"
+
+  # 3. Verificar claves (opcional)
+  - script: gpg --list-secret-keys
+    displayName: "Ver claves GPG importadas"
+
+  # 4. Configurar settings.xml con credenciales OSSRH
+  - task: MavenAuthenticate@0
+    inputs:
+      artifactsFeeds: ''
+      mavenServiceConnections: 'Sonatype' # Configura en Service Connections
+    displayName: "Configurar credenciales Sonatype"
+
+  # 5. Compilar, testear y desplegar
+  - task: Maven@4
+    inputs:
+      mavenPomFile: "pom.xml"
+      goals: "clean deploy -P release"
+      options: "-Dgpg.passphrase=$(GPG_PASSPHRASE) -s settings.xml"
+      javaHomeOption: "JDKVersion"
+      jdkVersionOption: "1.11"
+      publishJUnitResults: true
+      testResultsFiles: "**/target/surefire-reports/TEST-*.xml"
+    displayName: "Compilar, testear y desplegar a OSSRH"
