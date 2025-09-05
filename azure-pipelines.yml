@@ -37,7 +37,7 @@ steps:
       goals: "clean deploy -P release"
       options: "-Dgpg.passphrase=$(GPG_PASSPHRASE)"
       javaHomeOption: "JDKVersion"
-      jdkVersionOption: "1.11"
+      jdkVersionOption: "21"
       publishJUnitResults: true
       testResultsFiles: "**/target/surefire-reports/TEST-*.xml"
     displayName: "Compilar, testear y desplegar a OSSRH"
