@@ -218,8 +218,6 @@
           </executions>
         </plugin>
 
-        <build>
-    <plugins>
         <plugin>
           <groupId>org.sonatype.central</groupId>
           <artifactId>central-publishing-maven-plugin</artifactId>
@@ -229,8 +227,6 @@
             <publishingServerId>central</publishingServerId>
           </configuration>
         </plugin>
-    </plugins>
-</build>
       </plugins>
     </build>
     <distributionManagement>
