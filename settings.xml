@@ -1,0 +1,17 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+      <id>ossrh</id>
+      <username>${SONATYPE_USERNAME}</username>
+      <password>${SONATYPE_PASSWORD}</password>
+    </server>
+    <!-- If you sign artifacts, add your GPG passphrase -->
+    <server>
+      <id>gpg.passphrase</id>
+      <passphrase>${GPG_PASSPHRASE}</passphrase>
+    </server>
+  </servers>
+</settings>
