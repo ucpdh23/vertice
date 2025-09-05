@@ -6,7 +6,7 @@
 
   <groupId>io.github.ucpdh23</groupId>
   <artifactId>vertice</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
   <name>verticle (on top of Eclipse Vertx)</name>
   <description>Library to improve some features by Vertx</description>
   <url>https://github.com/ucpdh23/vertice</url>
@@ -207,14 +207,15 @@
           <groupId>org.jetbrains.dokka</groupId>
           <artifactId>dokka-maven-plugin</artifactId>
           <version>2.0.0</version>
-          <executions>
-              <execution>
-                  <phase>pre-site</phase>
-                  <goals>
-                      <goal>dokka</goal>
-                  </goals>
-              </execution>
-          </executions>
+<executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>javadocJar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
     </plugins>
