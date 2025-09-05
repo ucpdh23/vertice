@@ -6,7 +6,7 @@
 
   <groupId>io.github.ucpdh23</groupId>
   <artifactId>vertice</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>verticle (on top of Eclipse Vertx)</name>
   <description>Library to improve some features by Vertx</description>
   <url>https://github.com/ucpdh23/vertice</url>
