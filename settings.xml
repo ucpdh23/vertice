@@ -8,6 +8,11 @@
       <username>${SONATYPE_USERNAME}</username>
       <password>${SONATYPE_PASSWORD}</password>
     </server>
+    <server>
+      <id>central</id>
+      <username>${SONATYPE_USERNAME}</username>
+      <password>${SONATYPE_PASSWORD}</password>
+    </server>
     <!-- If you sign artifacts, add your GPG passphrase -->
     <server>
       <id>gpg.passphrase</id>
